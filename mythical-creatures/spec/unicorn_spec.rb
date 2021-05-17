@@ -7,7 +7,7 @@ RSpec.describe Unicorn do
     expect(unicorn.name).to eq('Robert')
   end
 
-  xit 'is silver by default' do
+  it 'is silver by default' do
     unicorn = Unicorn.new('Margaret')
     expect(unicorn.color).to eq('silver')
     expect(unicorn.silver?).to eq(true)
