@@ -5,9 +5,8 @@ RSpec.describe 'sort_by pattern' do
     transformed = []
     words.each do |word|
       transformed << [word.downcase, word]
-      require "pry"; binding.pry
     end
-    transformed = transformed.sort
+    transformed =  transformed.sort
     sorted = []
     transformed.each do |sort_key, word|
       sorted << word
@@ -20,6 +19,7 @@ RSpec.describe 'sort_by pattern' do
     transformed = []
     things.each do |thing|
       # Your code goes here
+      transformed << [thing.downcase, thing]
     end
     transformed = transformed.sort
     sorted = []
@@ -29,7 +29,7 @@ RSpec.describe 'sort_by pattern' do
     expect(sorted).to eq(["sponge", "pill", "water", "glass", "box"])
   end
 
-  xit 'sort by distance' do
+  it 'sort by distance' do
     distances = ["1cm", "9cm", "30cm", "4cm", "2cm"]
     transformed = []
     # Your code goes here
