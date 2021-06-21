@@ -3,7 +3,7 @@ RSpec.describe 'Arrays' do
   it 'test 0' do
     # in the line below, create a new empty array
 
-    empty = ______
+    empty = []
     expect(empty).to eq([])
   end
 

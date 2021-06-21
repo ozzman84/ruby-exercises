@@ -5,6 +5,7 @@ RSpec.describe 'sort_by pattern' do
     transformed = []
     words.each do |word|
       transformed << [word.downcase, word]
+      require "pry"; binding.pry
     end
     transformed = transformed.sort
     sorted = []
@@ -43,7 +44,11 @@ RSpec.describe 'sort_by pattern' do
   xit 'by length' do
     words = ["heteromorph", "ancyloceratina", "bioengineering", "mathematical", "bug"]
     # Your code goes here
-    expect(sorted).to eq(["bug", "heteromorph", "mathematical", "ancyloceratina", "bioengineering"])
+    expect(sorted).to eq(["bug", "heterom
+
+
+
+      orph", "mathematical", "ancyloceratina", "bioengineering"])
   end
 
   xit 'by proximity to ten' do
