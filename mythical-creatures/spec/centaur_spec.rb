@@ -1,4 +1,3 @@
-require './spec/spec-helper'
 require './lib/centaur'
 
 RSpec.describe Centaur do
@@ -76,6 +75,7 @@ RSpec.describe Centaur do
   it 'cannot shoot a bow when laying down' do
     centaur = Centaur.new('George', 'Palomino')
     centaur.lay_down
+
     expect(centaur.shoot).to eq('NO!')
   end
 
@@ -113,14 +113,42 @@ RSpec.describe Centaur do
   end
 
   it 'becomes rested after drinking a potion' do
-    # your code here
+    centaur = Centaur.new('George', 'Palomino')
+
+    centaur.shoot
+    centaur.run
+    centaur.shoot
+
+    expect(centaur.cranky?).to be true
+
+    centaur.drink_potion
+
+    expect(centaur.cranky?).to be false
   end
 
   it 'can only drink a potion whilst standing' do
-    # your code here
+    centaur = Centaur.new('George', 'Palomino')
+    centaur.shoot
+    centaur.run
+    centaur.shoot
+    centaur.lay_down
+
+    expect(centaur.cranky?).to be true
+    expect(centaur.drink_potion).to eq('NO!')
+
+    centaur.stand_up
+    centaur.drink_potion
+
+    expect(centaur.cranky?).to be false
   end
 
-  it 'gets stick if a potion is drunk while rested' do
-    # your code here
+  it 'gets stuck if a potion is drunk while rested' do
+    centaur = Centaur.new('George', 'Palomino')
+
+    expect(centaur.cranky?).to be false
+
+    centaur.drink_potion
+
+    expect(centaur.stuck?).to be true
   end
 end
