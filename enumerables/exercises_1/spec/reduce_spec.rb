@@ -2,9 +2,8 @@ RSpec.describe 'reduce' do
 
   it 'sums a list of numbers' do
     numbers = [32, 1, 21, 5, 81, 333]
-    result = numbers.reduce(0) do |sum, number|
-      sum + number
-    end
+    result = numbers.reduce(&:+)
+
     expect(result).to eq(473)
   end
 
@@ -14,16 +13,14 @@ RSpec.describe 'reduce' do
       # Your code goes here
       difference - number
     end
+
     expect(result).to eq(-170)
   end
 
   it 'multiplies a list of numbers' do
     numbers = [2, 3, 5, 7]
     # initial value is 1
-    result = numbers.reduce(1) do |difference, number|
-    # Your code goes here
-      difference * number
-    end
+    result = numbers.reduce(&:*)
 
     expect(result).to eq(210)
   end
@@ -46,6 +43,7 @@ RSpec.describe 'reduce' do
     # Your code goes here
     amount / number
   end
+
     expect(result).to eq(2)
   end
 
@@ -56,6 +54,7 @@ RSpec.describe 'reduce' do
     # Your code goes here
       value - number.min
     end
+
     expect(result).to eq(88)
   end
 
@@ -64,7 +63,7 @@ RSpec.describe 'reduce' do
     # initial value is 0
     result = elements.reduce(0) do |value, element|
     # Your code goes here
-      value + element[1]
+      value + element.last
     end
 
     expect(result).to eq(31)
