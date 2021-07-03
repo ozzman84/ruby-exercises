@@ -2,19 +2,18 @@ RSpec.describe 'reject' do
 
   it 'removes zeroes' do
     numbers = [2, 93, 7, 0, 0, 1, 0, 31, 0, 368]
-    filtered = numbers.reject do |number|
-      number.zero?
-    end
+    filtered = numbers.reject(&:zero?)
+
     expect(filtered).to eq([2, 93, 7, 1, 31, 368])
   end
 
   it 'removes vowels' do
     letters = ["a", "l", "l", " ", "y", "o", "u", "r", " ", "b", "a", "s", "e", " ", "a", "r", "e", " ", "b", "e", "l", "o", "n", "g", " ", "t", "o", " ", "u", "s"]
     remaining = letters.reject do |letter|
-      # Your code goes here
       ["a", "e", "i", "o", "u", "y"].include? letter
       #["a", "e", "i", "o", "u", "y"].any? letter
     end
+
     expect(remaining).to eq(["l", "l", " ", "r", " ", "b", "s", " ", "r", " ", "b", "l", "n", "g", " ", "t", " ", "s"])
   end
 
@@ -78,6 +77,7 @@ RSpec.describe 'reject' do
     not_numbers = elements.reject do |element|
       element.is_a?(Numeric)
     end
+
     expect(not_numbers).to eq(["cat", "dog", "aimless"])
   end
 
@@ -87,6 +87,7 @@ RSpec.describe 'reject' do
     not_numbers = elements.reject do |element|
       element.is_a?(Float)
     end
+
     expect(not_numbers).to eq(["cat", "dog", 23, 56, "aimless"])
   end
 
@@ -96,6 +97,7 @@ RSpec.describe 'reject' do
     remaining = animals.reject do |animal|
       animal.start_with?("a", "e", "i", "o", "u", "y")
     end
+
     expect(remaining).to eq(["bonobo", "cat", "dog"])
   end
 
@@ -105,6 +107,7 @@ RSpec.describe 'reject' do
     remaining = words.reject do |word|
       word == word.upcase
     end
+
     expect(remaining).to eq(["dog", "Trevor", "butter"])
   end
 
@@ -114,6 +117,7 @@ RSpec.describe 'reject' do
     remaining = elements.reject do |element|
       element.is_a?(Array)
     end
+
     expect(remaining).to eq(["CAT", 23, "AIMLESS", 43, "butter"])
   end
 
@@ -122,7 +126,8 @@ RSpec.describe 'reject' do
     # Your code goes here
     remaining = elements.reject do |element|
       element.is_a?(Hash)
-    end 
+    end
+
     expect(remaining).to eq(["cat", 23, "aimless", 43])
   end
 end
