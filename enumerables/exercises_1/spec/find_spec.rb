@@ -28,7 +28,7 @@ RSpec.describe 'find test' do
   it 'no three letter words' do
     words = ["piglet", "porridge", "bear", "blueberry"]
     found = words.find do |word|
-      word == 3
+      word.length <= 3
     end
 
     expect(found).to eq(nil)
@@ -64,7 +64,7 @@ RSpec.describe 'find test' do
   it 'first word starting with q' do
     words = ["weirdo", "quill", "fast", "quaint", "quitter", "koala"]
     found = words.find do |word|
-      word.include?('q')
+      word.start_with?('q')
     end
 
     expect(found).to eq("quill")
@@ -84,7 +84,7 @@ RSpec.describe 'find test' do
     found = numbers.find do |number|
       number > 20
     end
-    
+
     expect(found).to eq(21)
   end
 end
