@@ -13,6 +13,7 @@ RSpec.describe 'map' do
   it 'doubles' do
     numbers = [1, 2, 3, 4, 5]
     doubles = numbers.map { |number| number * 2 }
+
     expect(doubles).to eq([2, 4, 6, 8, 10])
   end
 
@@ -25,7 +26,7 @@ RSpec.describe 'map' do
 
   it 'lengths' do
     names = ["alice", "bob", "charlie", "david", "eve"]
-    lengths = names.map { |name| name.length }
+    lengths = names.map(&:length)
 
     expect(lengths).to eq([5, 3, 7, 5, 3])
   end
@@ -53,8 +54,8 @@ RSpec.describe 'map' do
 
   it 'trims last letter' do
     animals = ["dog", "cat", "mouse", "frog", "platypus"]
-    trimmed = animals.map { |animal| animal.chop }
-    
+    trimmed = animals.map(&:chop)
+
     expect(trimmed).to eq(["do", "ca", "mous", "fro", "platypu"])
   end
 end
