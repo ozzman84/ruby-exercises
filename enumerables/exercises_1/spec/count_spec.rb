@@ -2,45 +2,39 @@ RSpec.describe 'count test' do
 
   it 'words with e' do
     words = ["thing", "phone", "bark", "belt", "shoe", "bath"]
-    tally = words.count do |word|
-      word.include?('e')
-    end
+    tally = words.count { |word| word.include?('e') }
+
     expect(tally).to eq(3)
   end
 
   it 'numbers greater than 17' do
     numbers = [9, 18, 12, 17, 1, 3, 99]
-    tally = numbers.count do |number|
-      # Your code goes here
-      number > 17
-    end
+    tally = numbers.count { |number| number > 17 }
+
     expect(tally).to eq(2)
   end
 
   it 'words that are uppercase' do
     words = ["trousers", "SOCKS", "sweater", "Cap", "SHOE", "TIE"]
     # Your code goes here
-    tally = words.count do |word|
-      word == word.upcase
-    end
+    tally = words.count { |word| word == word.upcase }
+
     expect(tally).to eq(3)
   end
 
   it 'words ending in ing' do
     words = ["thought", "brake", "shin", "juice", "trash"]
     # Your code goes here
-    tally = words.count do |word|
-      word.include?('ing')
-    end
+    tally = words.count { |word| word.include?('ing') }
+
     expect(tally).to eq(0)
   end
 
   it 'even numbers' do
     numbers = [9, 2, 1, 3, 18, 39, 71, 4, 6]
     # Your code goes here
-    tally = numbers.count do |number|
-      number.even?
-    end
+    tally = numbers.count(&:even?)
+    
     expect(tally).to eq(4)
   end
 
@@ -68,7 +62,8 @@ RSpec.describe 'count test' do
     # Your code goes here
     tally = words.count do |word|
       word.length == 4
-    end 
+    end
+
     expect(tally).to eq(6)
   end
 end
